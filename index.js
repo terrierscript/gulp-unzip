@@ -13,10 +13,10 @@ module.exports = function(){
     var self = this
     file.pipe(unzip.Parse())
       .on('entry', function(entry){
-        entry.pipe(through(function(chunk, enc, cb){
-          console.log("=============")
-          console.log(entry.path)
-          console.log(chunk.length)
+        if(entry.type == "Directory"){
+          return
+        }
+        entry.pipe(through.obj(function(chunk, enc, cb){
           gutil.log("Find file: "+ entry.path)
           self.push(new gutil.File({
             cwd : "./",
@@ -25,12 +25,6 @@ module.exports = function(){
           }))
         }))
       })
-        /*.on('data', function(data){
-          console.log(data)
-        })
-        .on('end', function(){
-          console.log(entry.path)
-        })*/
       .on('close', function(){
         callback();
       })
