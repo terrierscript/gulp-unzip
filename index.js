@@ -13,16 +13,20 @@ module.exports = function(){
     var self = this
     file.pipe(unzip.Parse())
       .on('entry', function(entry){
-        if(entry.type == "Directory"){
-          return
-        }
+        var chunks = []
         entry.pipe(through.obj(function(chunk, enc, cb){
-          gutil.log("Find file: "+ entry.path)
-          self.push(new gutil.File({
-            cwd : "./",
-            path : entry.path,
-            contents: chunk
-          }))
+          //gutil.log("Find file: "+ entry.path)
+          chunks.push(chunk)
+          cb()
+        }, function(cb){
+          if(chunks.length > 0){
+            self.push(new gutil.File({
+              cwd : "./",
+              path : entry.path,
+              contents: Buffer.concat(chunks)
+            }))
+          }
+          cb()
         }))
       })
       .on('close', function(){
