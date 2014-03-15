@@ -1,0 +1,19 @@
+{
+  "name": "gulp-unzip",
+  "version": "0.0.0",
+  "description": "gulp plugin for unzip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": "suisho",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "unzip": "~0.1.9",
+    "gulp-util": "~2.2.14",
+    "through2": "~0.4.1"
+  }
+}
