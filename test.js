@@ -31,7 +31,26 @@ describe('gulp-unzip', function(){
     stream.write(mock)
     stream.end()
   })
-  it("large_file", function(){
-
+  it("large_file", function(done){
+    var stream = unzip()
+    var mock = createVinyl('largefile/zipped.zip')
+    stream.on('data', function(file){
+      var expect = fs.readFileSync('fixture/largefile/' + file.path)
+      assert.deepEqual(expect, file.contents)
+    }).on('end', function(){
+      done()
+    })
+    stream.write(mock)
+    stream.end()
+  })
+  it("null file", function(done){
+    var stream = unzip()
+    var mock = new gutil.File()
+    stream.on('data', function(file){
+      assert.deepEqual(file, mock)
+      done()
+    })
+    stream.write(mock)
+    stream.end()
   })
 })
