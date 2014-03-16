@@ -1,19 +1,37 @@
-var unzip = require('../index.js')
+var unzip = require('./index.js')
 var gutil = require('gulp-util')
+var fs = require('fs')
+var assert = require('assert-plus')
+var pj = require('path').join;
+
+
+function createVinyl(filename, contents) {
+  var base = pj(__dirname, 'fixture');
+  var filePath = pj(base, filename);
+
+  return new gutil.File({
+    cwd: __dirname,
+    base: base,
+    path: filePath,
+    contents: contents || fs.readFileSync(filePath)
+  });
+}
+
+
 describe('gulp-unzip', function(){
-  it('unzip buffering', function(done){
+  it("basic", function(done){
     var stream = unzip()
-    var mock = new gutil.File({
-      cwd : cwd,
-      base : cwd + "/fixture",
-      path : cwd + "/fixture/zipped.zip",
-    })
-    stream.on('data', function(unzipped){
-      console.log(unzipped)
-    })
-    stream.on('end', function(){
+    var mock = createVinyl('basic/zipped.zip')
+    stream.on('data', function(file){
+      var expect = fs.readFileSync('fixture/basic/' + file.path)
+      assert.deepEqual(expect, file.contents)
+    }).on('end', function(){
       done()
     })
-    stream.end
+    stream.write(mock)
+    stream.end()
+  })
+  it("large_file", function(){
+
   })
 })
