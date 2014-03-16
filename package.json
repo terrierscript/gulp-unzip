@@ -14,7 +14,9 @@
   "dependencies": {
     "unzip": "~0.1.9",
     "gulp-util": "~2.2.14",
-    "through2": "~0.4.1"
+    "through2": "~0.4.1",
+    "minimatch": "~0.2.14",
+    "lodash.defaults": "~2.4.1"
   },
   "devDependencies": {
     "mocha": "~1.18.0",

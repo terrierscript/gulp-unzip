@@ -19,6 +19,16 @@ function createVinyl(filename, contents) {
 
 
 describe('gulp-unzip', function(){
+  it("null file", function(done){
+    var stream = unzip()
+    var mock = new gutil.File()
+    stream.on('data', function(file){
+      assert.deepEqual(file, mock)
+      done()
+    })
+    stream.write(mock)
+    stream.end()
+  })
   it("basic", function(done){
     var stream = unzip()
     var mock = createVinyl('basic/zipped.zip')
@@ -43,14 +53,5 @@ describe('gulp-unzip', function(){
     stream.write(mock)
     stream.end()
   })
-  it("null file", function(done){
-    var stream = unzip()
-    var mock = new gutil.File()
-    stream.on('data', function(file){
-      assert.deepEqual(file, mock)
-      done()
-    })
-    stream.write(mock)
-    stream.end()
-  })
+  it("filter unzipped file", function(){})
 })
