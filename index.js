@@ -14,8 +14,9 @@ module.exports = function(){
     file.pipe(unzip.Parse())
       .on('entry', function(entry){
         var chunks = []
+
         entry.pipe(through.obj(function(chunk, enc, cb){
-          //gutil.log("Find file: "+ entry.path)
+          // gutil.log("Find file: "+ entry.path)
           chunks.push(chunk)
           cb()
         }, function(cb){
@@ -28,9 +29,8 @@ module.exports = function(){
           }
           cb()
         }))
-      })
-      .on('close', function(){
-        callback();
+      }).on('close', function(){
+        callback()
       })
   }
   return through.obj(transform);
