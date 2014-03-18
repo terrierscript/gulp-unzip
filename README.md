@@ -23,7 +23,7 @@
 ```js
   var concat = require('gulp-concat')
   var minimatch = require('minimatch')
-  
+gulp.task('filter_sample', function(){
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip({
       filter : function(entry){
@@ -32,6 +32,7 @@
     }))
     .pipe(concat("bootstrap.css"))
     .pipe(gulp.dest('./tmp'))
+})
 ```
 
 ## entry params
