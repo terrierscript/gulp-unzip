@@ -5,7 +5,7 @@
 
 - this sample is extract all files.
 
-```
+```js
   var minimatch = require('minimatch')
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip())
@@ -20,7 +20,7 @@
 
 - below sample is extract only css.
 
-```
+```js
   var minimatch = require('minimatch')
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip({
