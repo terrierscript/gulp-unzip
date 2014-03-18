@@ -18,10 +18,12 @@
 
 ## sample
 
-- below sample is extract only css.
+- below sample is extract only css and concat with `gulp-concat`
 
 ```js
+  var concat = require('gulp-concat')
   var minimatch = require('minimatch')
+  
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip({
       filter : function(entry){
