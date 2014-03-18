@@ -1,13 +1,16 @@
 {
   "name": "gulp-unzip",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "gulp plugin for unzip",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
-    "gulpplugin", "unzip", "zip", "package"
+    "gulpplugin",
+    "unzip",
+    "zip",
+    "package"
   ],
   "author": "suisho",
   "license": "BSD-2-Clause",
