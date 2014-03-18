@@ -16,18 +16,6 @@
 - If you want some pattern of file in zip. you can use `filter` option.
 - filter function can get `entry` as parameter.
 
-## entry parms
-- If you want more info, show [node-unzip](https://github.com/EvanOxfeld/node-unzip)
-
-### entry.size
-- get file size.
-
-### entry.type
-- get `Directory` or `File`
-
-### entry.path
-- file path in zip file.
-
 ## sample
 
 - below sample is extract only css.
@@ -43,3 +31,16 @@
     .pipe(concat("bootstrap.css"))
     .pipe(gulp.dest('./tmp'))
 ```
+
+## entry params
+- If you want more info, show [node-unzip](https://github.com/EvanOxfeld/node-unzip)
+
+### entry.size
+- get file size.
+
+### entry.type
+- get `Directory` or `File`
+
+### entry.path
+- file path in zip file.
+
