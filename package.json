@@ -4,10 +4,10 @@
   "description": "gulp plugin for unzip",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
-    "gulpplugin"
+    "gulpplugin", "unzip", "zip", "package"
   ],
   "author": "suisho",
   "license": "BSD-2-Clause",
