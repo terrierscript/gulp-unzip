@@ -1,5 +1,5 @@
 # gulp-unzip
-| gulp plugin for unzip file.
+> gulp plugin for unzip file.
 
 - simple usage
 
