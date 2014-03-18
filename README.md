@@ -6,10 +6,12 @@
 - this sample is extract all files.
 
 ```js
+gulp.task('filter_sample', function(){
   var minimatch = require('minimatch')
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip())
     .pipe(gulp.dest('./tmp'))
+})
 ```
 
 # filter option usage.
@@ -21,8 +23,8 @@
 - below sample is extract only css and concat with `gulp-concat`
 
 ```js
-  var concat = require('gulp-concat')
-  var minimatch = require('minimatch')
+var concat = require('gulp-concat')
+var minimatch = require('minimatch')
 gulp.task('filter_sample', function(){
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip({
