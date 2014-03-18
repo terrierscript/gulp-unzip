@@ -53,5 +53,37 @@ describe('gulp-unzip', function(){
     stream.write(mock)
     stream.end()
   })
-  it("filter unzipped file", function(){})
+  describe("filter option", function(){
+    it("false filter", function(done){
+      var stream = unzip({
+        filter : function(){return false}
+      })
+      var mock = createVinyl('basic/zipped.zip')
+      stream.on('data', function(file){
+        throw "entried"
+      }).on('end', function(){
+        done()
+      })
+      stream.write(mock)
+      stream.end()
+    })
+
+    it("only extract css with filter", function(done){
+      var minimatch = require('minimatch')
+      var stream = unzip({
+        filter : function(entry){
+          return minimatch(entry.path, "**/*.min.css")
+        }
+      })
+      var mock = createVinyl('sometypes/bootstrap-3.1.1-dist.zip')
+      stream.on('data', function(file){
+        assert.ok(/.*\.min\.css/.test(file.path))
+      }).on('end', function(){
+        done()
+      })
+      stream.write(mock)
+      stream.end()
+    })
+    
+  })
 })

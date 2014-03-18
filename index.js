@@ -14,14 +14,12 @@ module.exports = function(extractOption){
     var opts = defaults(extractOption || {}, {
       filter : function(entry){ return true },
     })
-
     
     // unzip file
     var self = this
     file.pipe(unzip.Parse())
       .on('entry', function(entry){
         var chunks = []
-
         if(!opts.filter(entry)){
           entry.autodrain()
           // skip entry
