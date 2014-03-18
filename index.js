@@ -12,31 +12,19 @@ module.exports = function(extractOption){
     }
 
     var opts = defaults(extractOption || {}, {
-      maxSize : 0,
-      glob : "*",
-      filter : function(){ return true },
+      filter : function(entry){ return true },
     })
 
-    var isExtract = function(entry){
-      if(!opts.filter()){
-        return false
-      }
-      if(opts.maxSize > 0 && opts.maxSize < entry.size){
-        return false
-      }
-      if(!minimatch(entry.path, opts.glob)){
-        return false
-      }
-      return true
-    }
     
     // unzip file
     var self = this
     file.pipe(unzip.Parse())
       .on('entry', function(entry){
         var chunks = []
-        if(!isExtract(entry)){
+
+        if(!opts.filter(entry)){
           entry.autodrain()
+          // skip entry
           return
         }
         
