@@ -1,3 +1,5 @@
 fixture/
 test.js
 tmp/
+gulpfile.js
+.gitignore
