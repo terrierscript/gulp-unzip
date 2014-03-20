@@ -3,6 +3,8 @@ var gutil = require('gulp-util')
 var fs = require('fs')
 var assert = require('assert-plus')
 var pj = require('path').join;
+var minimatch = require('minimatch')
+      
 
 
 function createVinyl(filename, contents) {
@@ -69,7 +71,6 @@ describe('gulp-unzip', function(){
     })
 
     it("only extract css with filter", function(done){
-      var minimatch = require('minimatch')
       var stream = unzip({
         filter : function(entry){
           return minimatch(entry.path, "**/*.min.css")

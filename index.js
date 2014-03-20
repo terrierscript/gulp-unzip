@@ -2,8 +2,8 @@ var through = require('through2');
 var gutil = require('gulp-util')
 var unzip = require('unzip')
 var fs = require('fs')
-var minimatch = require('minimatch')
-var defaults = require('lodash.defaults')
+var defaults = require('defaults')
+
 module.exports = function(extractOption){
   function transform(file, enc, callback){
     if (file.isNull()) {
