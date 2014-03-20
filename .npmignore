@@ -3,3 +3,5 @@ test.js
 tmp/
 gulpfile.js
 .gitignore
+.travis.yml
+README.md
