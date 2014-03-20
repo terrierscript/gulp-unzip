@@ -23,7 +23,6 @@
   "devDependencies": {
     "mocha": "~1.18.0",
     "assert-plus": "~0.1.5",
-    "minimatch": "~0.2.14",
     "gulp-concat": "~2.2.0"
   }
 }
