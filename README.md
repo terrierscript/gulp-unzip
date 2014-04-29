@@ -50,3 +50,6 @@ gulp.task('filter_sample', function(){
 ### entry.path
 - file path in zip file.
 
+# Known issue
+- Cause `RangeError: Maximum call stack size exceeded` when open large zip file
+  - https://github.com/suisho/gulp-unzip/issues/2
