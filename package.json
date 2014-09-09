@@ -15,7 +15,7 @@
   "author": "suisho",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "unzip": "~0.1.9",
+    "unzip": "^0.1.11",
     "gulp-util": "~2.2.14",
     "through2": "~0.4.1",
     "defaults": "^1.0.0"
