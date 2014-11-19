@@ -4,16 +4,17 @@ var unzip = require('unzip')
 var fs = require('fs')
 var defaults = require('defaults')
 
-module.exports = function(extractOption){
+module.exports = function(options){
   function transform(file, enc, callback){
     if (file.isNull()) {
       this.push(file);
       return callback();
     }
-
-    var opts = defaults(extractOption || {}, {
-      filter : function(entry){ return true },
-    })
+    
+    var opts = {};
+    options = options || {};
+    opts.filter = options.filter || function () { return true; };
+    opts.keepEmpty = options.keepEmpty || false;
     
     // unzip file
     var self = this
@@ -31,7 +32,7 @@ module.exports = function(extractOption){
           chunks.push(chunk)
           cb()
         }, function(cb){
-          if(chunks.length > 0){
+          if(chunks.length > 0 || opts.keepEmpty){
             self.push(new gutil.File({
               cwd : "./",
               path : entry.path,

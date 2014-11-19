@@ -2,9 +2,7 @@
 # gulp-unzip
 > gulp plugin for unzip file.
 
-# simple usage
-
-- this sample is extract all files.
+# Usage
 
 ```js
 gulp.task('filter_sample', function(){
@@ -15,13 +13,11 @@ gulp.task('filter_sample', function(){
 })
 ```
 
-# filter option usage.
-- If you want some pattern of file in zip. you can use `filter` option.
-- filter function can get `entry` as parameter.
+# Options
 
-## sample
+## filter
 
-- below sample is extract only css and concat with `gulp-concat`
+You can provide a `filter` option. It should be a function that gets an `entry` as an argument and returns `true` or `false`.
 
 ```js
 var concat = require('gulp-concat')
@@ -38,17 +34,25 @@ gulp.task('filter_sample', function(){
 })
 ```
 
-## entry params
-- If you want more info, show [node-unzip](https://github.com/EvanOxfeld/node-unzip)
+## keepEmpty
 
-### entry.size
-- get file size.
+You can provide `true` or `false` in `keepEmpty` for whether you want to extract empty files from the archive or not. Defaults to `false`.
 
-### entry.type
-- get `Directory` or `File`
+```js
+gulp.task('filter_sample', function(){
+  gulp.src("./download/bootstrap-3.1.1-dist.zip")
+    .pipe(unzip({ keepEmpty : true }))
+    ...
+})
+```
 
-### entry.path
-- file path in zip file.
+# Entry
+
+For more info, go to [node-unzip](https://github.com/EvanOxfeld/node-unzip).
+
+- `entry.size`, returns the file size
+- `entry.type`, returns `Directory` or `File`
+- `entry.path`, returns the file path in the zip file
 
 # Known issue
 - Cause `RangeError: Maximum call stack size exceeded` when open large zip file
