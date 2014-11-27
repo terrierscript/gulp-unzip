@@ -4,8 +4,6 @@ var fs = require('fs')
 var assert = require('assert-plus')
 var pj = require('path').join;
 var minimatch = require('minimatch')
-      
-
 
 function createVinyl(filename, contents) {
   var base = pj(__dirname, 'fixture');
@@ -18,7 +16,6 @@ function createVinyl(filename, contents) {
     contents: contents || fs.readFileSync(filePath)
   });
 }
-
 
 describe('gulp-unzip', function(){
   it("null file", function(done){
@@ -85,6 +82,43 @@ describe('gulp-unzip', function(){
       stream.write(mock)
       stream.end()
     })
-    
+  })
+
+  describe("keepEmpty option", function(){
+    it("true", function(done){
+      var stream = unzip({ keepEmpty: false })
+      var didSeeEmpty = false
+      var mock = createVinyl('basic/zipped.zip')
+      stream.on('data', function(file){
+        if (file.contents.length === 0) {
+          didSeeEmpty = true;
+        }
+      }).on('end', function(){
+        if (didSeeEmpty) {
+          throw new Error('saw empty')
+        }
+        done()
+      })
+      stream.write(mock)
+      stream.end()
+    })
+
+    it("false", function(done){
+      var stream = unzip({ keepEmpty: true })
+      var didSeeEmpty = false
+      var mock = createVinyl('basic/zipped.zip')
+      stream.on('data', function(file){
+        if (file.contents.length === 0) {
+          didSeeEmpty = true;
+        }
+      }).on('end', function(){
+        if (!didSeeEmpty) {
+          throw new Error('did not see empty')
+        }
+        done()
+      })
+      stream.write(mock)
+      stream.end()
+    })
   })
 })
