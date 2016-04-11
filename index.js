@@ -10,12 +10,12 @@ module.exports = function(options){
       this.push(file);
       return callback();
     }
-    
+
     var opts = {};
     options = options || {};
     opts.filter = options.filter || function () { return true; };
     opts.keepEmpty = options.keepEmpty || false;
-    
+
     // unzip file
     var self = this
     file.pipe(unzip.Parse())
@@ -26,13 +26,13 @@ module.exports = function(options){
           // skip entry
           return
         }
-        
+
         entry.pipe(through.obj(function(chunk, enc, cb){
           // gutil.log("Find file: "+ entry.path)
           chunks.push(chunk)
           cb()
         }, function(cb){
-          if(chunks.length > 0 || opts.keepEmpty){
+          if(entry.type == 'File' && (chunks.length > 0 || opts.keepEmpty)){
             self.push(new gutil.File({
               cwd : "./",
               path : entry.path,
