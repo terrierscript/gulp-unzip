@@ -1,6 +1,6 @@
 {
   "name": "gulp-unzip",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "gulp plugin for unzip",
   "main": "index.js",
   "repository": {
