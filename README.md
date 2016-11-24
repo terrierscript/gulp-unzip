@@ -1,4 +1,4 @@
-![travis](https://travis-ci.org/inuscript/gulp-unzip.svg)
+[![travis](https://travis-ci.org/inuscript/gulp-unzip.svg)](https://travis-ci.org/inuscript/gulp-unzip)
 # gulp-unzip
 > gulp plugin for unzip file.
 
