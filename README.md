@@ -1,4 +1,4 @@
-![travis](https://travis-ci.org/suisho/gulp-unzip.svg)
+![travis](https://travis-ci.org/inuscript/gulp-unzip.svg)
 # gulp-unzip
 > gulp plugin for unzip file.
 
@@ -56,4 +56,4 @@ For more info, go to [node-unzip](https://github.com/EvanOxfeld/node-unzip).
 
 # Known issue
 - Cause `RangeError: Maximum call stack size exceeded` when open large zip file
-  - https://github.com/suisho/gulp-unzip/issues/2
+  - https://github.com/inuscript/gulp-unzip/issues/2
