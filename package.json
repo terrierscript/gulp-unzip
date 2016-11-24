@@ -19,10 +19,10 @@
   "author": "suisho",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "unzip": "^0.1.11",
+    "defaults": "^1.0.0",
     "gulp-util": "^2.2.14",
     "through2": "^0.4.1",
-    "defaults": "^1.0.0"
+    "unzipper": "^0.7.1"
   },
   "devDependencies": {
     "mocha": "^1.18.0",
