@@ -5,8 +5,8 @@
 # Usage
 
 ```js
+var unzip = require('gulp-unzip')
 gulp.task('filter_sample', function(){
-  var minimatch = require('minimatch')
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
     .pipe(unzip())
     .pipe(gulp.dest('./tmp'))
@@ -21,6 +21,7 @@ You can provide a `filter` option. It should be a function that gets an `entry` 
 
 ```js
 var concat = require('gulp-concat')
+var unzip = require('gulp-unzip')
 var minimatch = require('minimatch')
 gulp.task('filter_sample', function(){
   gulp.src("./download/bootstrap-3.1.1-dist.zip")
