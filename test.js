@@ -1,15 +1,15 @@
 var unzip = require('./index.js')
-var gutil = require('gulp-util')
 var fs = require('fs')
 var assert = require('assert-plus')
 var pj = require('path').join;
 var minimatch = require('minimatch')
+var Vinyl = require('vinyl');
 
 function createVinyl(filename, contents) {
   var base = pj(__dirname, 'fixture');
   var filePath = pj(base, filename);
 
-  return new gutil.File({
+  return new Vinyl({
     cwd: __dirname,
     base: base,
     path: filePath,
@@ -20,7 +20,7 @@ function createVinyl(filename, contents) {
 describe('gulp-unzip', function(){
   it("null file", function(done){
     var stream = unzip()
-    var mock = new gutil.File()
+    var mock = new Vinyl()
     stream.on('data', function(file){
       assert.deepEqual(file, mock)
       done()
