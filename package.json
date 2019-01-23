@@ -19,16 +19,14 @@
   "author": "inuscript",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "defaults": "^1.0.0",
-    "fancy-log": "^1.3.2",
-    "through2": "^0.4.1",
-    "unzipper": "^0.7.1",
-    "vinyl": "^1.2.0"
+    "through2": "3.0.0",
+    "unzipper": "0.9.10",
+    "vinyl": "1.2.0"
   },
   "devDependencies": {
-    "mocha": "^1.18.0",
-    "assert-plus": "^0.1.5",
-    "gulp-concat": "^2.2.0",
-    "minimatch": "^0.2.14"
+    "mocha": "5.2.0",
+    "assert-plus": "1.0.0",
+    "gulp-concat": "2.6.1",
+    "minimatch": "3.0.4"
   }
 }
