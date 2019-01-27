@@ -63,7 +63,7 @@ gulp.task('filter_sample', function(){
 If you want to contribute to the project, please check de [Contribution Guidelines](CONTRIBUTING.md)
 
 **Author**
-- [S. Suzuki (@terrierscript)](https://github.com/terrierscript)
+- [terrierscript (@terrierscript)](https://github.com/terrierscript)
 
 **Maintainers**
 - [Ulises Gascón (@ulisesGascon)](https://github.com/ulisesGascon)
