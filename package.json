@@ -1,11 +1,11 @@
 {
   "name": "gulp-unzip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gulp plugin for unzip",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/inuscript/gulp-unzip.git"
+    "url": "https://github.com/terrierscript/gulp-unzip.git"
   },
   "scripts": {
     "test": "mocha"
@@ -16,7 +16,37 @@
     "zip",
     "package"
   ],
-  "author": "inuscript",
+  "author": {
+    "name": "S. Suzuki",
+    "url": "https://github.com/terrierscript"
+  },
+  "contributors": [
+    {
+      "name":"Joey Cozza",
+      "url": "https://github.com/joeycozza"
+    },{
+      "name":"Joe Pettersson",
+      "url": "https://github.com/Joe8Bit"
+    },{
+      "name":"Erik Vold",
+      "url": "https://github.com/erikvold"
+    },{
+      "name":"hami",
+      "url": "https://github.com/hami-jp"
+    },{
+      "name":"Selwyn",
+      "url": "https://github.com/Siilwyn"
+    },{
+      "name":"João Moreno",
+      "url": "https://github.com/joaomoreno"
+    },{
+      "name":"Evan Oxfeld",
+      "url": "https://github.com/EvanOxfeld"
+    },{
+      "name": "Ulises Gascón",
+      "url": "https://github.com/ulisesGascon"
+    }
+  ],
   "license": "BSD-2-Clause",
   "dependencies": {
     "through2": "3.0.0",
