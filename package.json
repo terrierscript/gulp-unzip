@@ -22,41 +22,49 @@
   },
   "contributors": [
     {
-      "name":"Joey Cozza",
+      "name": "Joey Cozza",
       "url": "https://github.com/joeycozza"
-    },{
-      "name":"Joe Pettersson",
+    },
+    {
+      "name": "Joe Pettersson",
       "url": "https://github.com/Joe8Bit"
-    },{
-      "name":"Erik Vold",
+    },
+    {
+      "name": "Erik Vold",
       "url": "https://github.com/erikvold"
-    },{
-      "name":"hami",
+    },
+    {
+      "name": "hami",
       "url": "https://github.com/hami-jp"
-    },{
-      "name":"Selwyn",
+    },
+    {
+      "name": "Selwyn",
       "url": "https://github.com/Siilwyn"
-    },{
-      "name":"João Moreno",
+    },
+    {
+      "name": "João Moreno",
       "url": "https://github.com/joaomoreno"
-    },{
-      "name":"Evan Oxfeld",
+    },
+    {
+      "name": "Evan Oxfeld",
       "url": "https://github.com/EvanOxfeld"
-    },{
+    },
+    {
       "name": "Ulises Gascón",
       "url": "https://github.com/ulisesGascon"
     }
   ],
   "license": "BSD-2-Clause",
   "dependencies": {
-    "through2": "3.0.0",
-    "unzipper": "0.9.10",
-    "vinyl": "1.2.0"
+    "unzipper": "0.9.15",
+    "vinyl": "2.2.0",
+    "vinyl-buffer": "^1.0.1"
   },
   "devDependencies": {
-    "mocha": "5.2.0",
     "assert-plus": "1.0.0",
+    "gulp": "^4.0.2",
     "gulp-concat": "2.6.1",
-    "minimatch": "3.0.4"
+    "minimatch": "3.0.4",
+    "mocha": "5.2.0"
   }
 }
