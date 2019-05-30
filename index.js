@@ -14,6 +14,12 @@ module.exports = (options = {}) => {
     opts.filter = options.filter || (() => true);
     opts.keepEmpty = options.keepEmpty || false;
 
+    file = new Vinyl({
+      cwd : "./",
+      path : file.path,
+      contents: file.contents
+    })
+
     file.pipe(unzip.Parse())
       .on('entry', entry => {
         const chunks = [];
