@@ -1,20 +1,30 @@
-const through = require('through2').obj,
+const Stream = require('stream'),
+  through = require('through2').obj,
   unzip = require('unzipper'),
   Vinyl = require('vinyl');
 
 module.exports = (options = {}) => {
   
+
   function transform(file, enc, callback){
     if (file.isNull()) {
       this.push(file);
       return callback();
     }
 
+    let stream = new Stream.PassThrough();
+
+		if ( file.isBuffer() && !file.pipe ) {
+			stream.end( file.contents );
+		} else {
+      stream = file;
+    }
+
     const opts = {};
     opts.filter = options.filter || (() => true);
     opts.keepEmpty = options.keepEmpty || false;
 
-    file.pipe(unzip.Parse())
+    stream.pipe(unzip.Parse())
       .on('entry', entry => {
         const chunks = [];
         if(!opts.filter(entry)){
