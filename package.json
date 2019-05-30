@@ -8,7 +8,9 @@
     "url": "https://github.com/terrierscript/gulp-unzip.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "keywords": [
     "gulpplugin",
@@ -65,6 +67,7 @@
     "gulp": "^4.0.2",
     "gulp-concat": "2.6.1",
     "minimatch": "3.0.4",
-    "mocha": "5.2.0"
+    "mocha": "5.2.0",
+    "standard": "^12.0.1"
   }
 }
